@@ -50,11 +50,16 @@ static CGFloat const kRadarDefaultAvatarHeight = 52;
 }
 
 - (void)setupViews {
-    //
     /** 角度数组 */
-    self.kAvatarAngles = @[@(200), @(180), @(320), @(100), @(0), @(232), @(40), @(120), @(75), @(279), @(157)];
+    self.kAvatarAngles = @[@(0), @(62), @(138), @(170), @(234), @(312),
+                           @(23), @(88), @(120), @(280), @(240),
+                           @(12), @(47), @(138), @(214), @(325),
+                           @(35), @(102), @(188), @(248), @(240)];
     /** 出现时间 */
-    self.kAvatarTimes = @[@(1), @(1), @(0), @(0), @(1), @(1), @(1), @(1), @(0.5), @(1), @(1)];
+    self.kAvatarTimes = @[@(0.5), @(0.5), @(0.5), @(0.25), @(0.5),
+                          @(1), @(0.5), @(1), @(1), @(1),
+                          @(0.5), @(0.5), @(0.5), @(0.25), @(0.5),
+                          @(0.5), @(1), @(0.5), @(1), @(0.5)];
     self.currentIndex = 0;
     self.avatars = [NSMutableArray array];
     self.backgroundColor = [UIColor clearColor];
@@ -124,6 +129,7 @@ static CGFloat const kRadarDefaultAvatarHeight = 52;
     if (self.currentIndex >= _kAvatarAngles.count) {
         self.currentIndex = 0;
     }
+    // 随机角度
 //    CGFloat angle = arc4random() % 360;
     CGFloat angle = [[_kAvatarAngles objectAtIndex:self.currentIndex] floatValue];
     
