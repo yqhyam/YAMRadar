@@ -75,8 +75,10 @@ static CGFloat const kRadarDefaultAvatarHeight = 52;
     _avatarImageView.layer.cornerRadius = 39;
     _avatarImageView.layer.masksToBounds = true;
     _avatarImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _avatarImageView.layer.borderWidth = 2.4;
+    _avatarImageView.layer.borderColor = [UIColor whiteColor].CGColor;
     _avatarImageView.frame = CGRectMake(0, 0, 78, 78);
-    _avatarImageView.alpha = 0.5;
+//    _avatarImageView.alpha = 0.5;
     [self addSubview:_avatarImageView];
     
 }
@@ -172,6 +174,9 @@ static CGFloat const kRadarDefaultAvatarHeight = 52;
     
     [animationView.layer addAnimation:animationGroup forKey:animationView.aniKey];
     
+    if (self.currentIndex >= _kAvatarTimes.count) {
+        self.currentIndex = 0;
+    }
     CGFloat time = [[_kAvatarTimes objectAtIndex:self.currentIndex] floatValue];
     if (self.speed == GIRadarViewSpeedFast) {
         time = time/2.f;
